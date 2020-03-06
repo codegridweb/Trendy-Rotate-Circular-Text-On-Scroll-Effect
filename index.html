@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trendy Rotate Circular Text On Scroll Effect | Codegrid</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="circletype.min.js"></script>
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    </head>
+    <body>
+        <div class="circular-text">
+            <span id="rotated"
+                >stone • fox • swim • tapcheck • wolves • fox • swim • tapcheck
+                • wolves</span
+            >
+        </div>
+        <div class="arrow">
+            <ion-icon name="arrow-down"></ion-icon>
+        </div>
+    </body>
+    <script>
+        const circleType = new CircleType(
+            document.getElementById("rotated")
+        ).radius(80);
+
+        $(window).scroll(function() {
+            var offset = $(window).scrollTop();
+            offset = offset * 0.4;
+
+            $(".circular-text").css({
+                "-moz-transform": "rotate(" + offset + "deg)",
+                "-webkit-transform": "rotate(" + offset + "deg)",
+                "-o-transform": "rotate(" + offset + "deg)",
+                "-ms-transform": "rotate(" + offset + "deg)",
+                transform: "rotate(" + offset + "deg)"
+            });
+        });
+    </script>
+</html>
